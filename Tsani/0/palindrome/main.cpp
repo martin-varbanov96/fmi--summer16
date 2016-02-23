@@ -2,8 +2,8 @@
 Чрез рекурсия да се провери дали едно число е палиндром.
 */
 
-
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -16,11 +16,17 @@ int numLen(int num, int count){
 
 }
 
-bool isPalindrome(int num, int len, int current, int lastIndex, int firstIndex){
+bool isPalindrome(int num, int len, int firstIndex, int lastIndex){
     if(num == 0){
         return true;
     }
+    int first = num/(pow(10, firstIndex));
+    int last = num % lastIndex;
+    if(first == last){
+        return isPalindrome(num, len, firstIndex/10, lastIndex*10);
+    }
 
+    return false;
 }
 
 int main()
@@ -28,6 +34,6 @@ int main()
     int number;
     cin >> number;
     int len = numLen(number, 0);
-    cout << isPalindrome(number, len, len, number%10, number/len);
+    cout << isPalindrome(number, len, 1, 10);
 
 }
