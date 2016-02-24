@@ -16,14 +16,18 @@ int numLen(int num, int count){
 
 }
 
-bool isPalindrome(int num, int len, int firstIndex, int lastIndex){
+bool isPalindrome(int num, int len){
     if(num == 0){
         return true;
     }
-    int first = num/(pow(10, firstIndex));
-    int last = num % lastIndex;
+    int first = num/(pow(10, len-1));
+    int last = num % 10;
+
     if(first == last){
-        return isPalindrome(num, len, firstIndex/10, lastIndex*10);
+        num -=  (pow(10, len-1) * first);
+        num /= 10;
+        len -= 2;
+        return isPalindrome(num, len);
     }
 
     return false;
@@ -34,6 +38,6 @@ int main()
     int number;
     cin >> number;
     int len = numLen(number, 0);
-    cout << isPalindrome(number, len, 1, 10);
+    cout << isPalindrome(number, len);
 
 }

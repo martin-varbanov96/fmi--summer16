@@ -1,0 +1,16 @@
+void (*f)(int a, int b, void (*f)(int *int)){
+	
+}
+
+struct Name
+{
+	Name n;
+	int a;
+	double b, c;
+};
+
+Name variable;
+variable.a = 5;
+
+Name* ptr = 2variable;
+(*ptr).a = 5;
