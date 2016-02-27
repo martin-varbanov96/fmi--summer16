@@ -14,7 +14,7 @@ bool isContained(char var[10], char arraySource[10][10]){
     int count = 0;
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            if(var[j] == '\0'){
+            if((var[j] == '\0') || (arraySource[i][j] == '\0')){
                 continue;
             }
             if(var[j] != arraySource[i][j]){
@@ -32,6 +32,8 @@ bool isContained(char var[10], char arraySource[10][10]){
     }
     return false;
 }
+
+//recursive search cal function
 void searchWord(char book[10][10]){
 
     char searchGlass[10];
@@ -60,12 +62,5 @@ int main()
         {'T', 'S', 'A', 'N', 'I'},
         {'P', 'R', 'O', 'B', 'L', 'E', 'M'}
     };
-
-    char searchGlass[10];
-    cout << "Enter your word: ";
-    cin >> searchGlass;
-    cout << isContained(searchGlass, book);
-
-   // searchWord(book);
-
+   searchWord(book);
 }
