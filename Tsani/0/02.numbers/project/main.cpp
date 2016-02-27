@@ -28,6 +28,27 @@ bool isEqual(int a, int b, int sizeA, int sizeB){
     return true;
 }
 
+bool isSimilarWithB(int a, int b, int sizeA, int sizeB){
+    int temp = b % 10;
+    if(sizeB == 0){
+        return false;
+    }
+    if(temp == a){
+        return true;
+    }
+    return isSimilarWithB(a, b/10, sizeA, sizeB-1);
+}
+
+bool recursiveA(int a, int b, int sizeA, int sizeB ){
+    if(sizeA == 0){
+        return true;
+    }
+    if(isSimilarWithB(a%10, b, sizeA, sizeB)){
+        return recursiveA(a/10, b, sizeA-1, sizeB);
+    }
+    return false;
+}
+
 int main()
 {
     int a, b, aSize, bSize;
@@ -42,6 +63,6 @@ int main()
     cin >> bSize;
 
 
-    cout << isEqual(a, b, aSize, bSize);
+    cout << recursiveA(a, b, aSize, bSize);
 
 }
