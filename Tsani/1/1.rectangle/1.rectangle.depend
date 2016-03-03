@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1457004157 source:/home/martin/Documents/projects/fmi--summer16/Tsani/1/1.rectangle/main.cpp
+	<iostream>
+	<cmath>
+
