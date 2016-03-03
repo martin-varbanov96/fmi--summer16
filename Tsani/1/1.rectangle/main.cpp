@@ -6,24 +6,41 @@ using namespace std;
 struct rectangle{
     int a = 0;
     int b = 0;
-    int getS(int a, int b){
-        return a*b;
-    }
-    int getP(int a, int b){
-        return a + a + b + b;
-    }
-    double getDiagonal( int a,  int b){
-        return sqrt((a*a) + (b*b));
-    }
 };
 
+
+void init(rectangle &thisRect, int a, int b){
+    thisRect.a = a;
+    thisRect.b = b;
+}
+
+void print(rectangle &thisRect){
+    cout << "a = " << thisRect.a << " and b = " << thisRect.b << endl;
+}
+
+int getP(rectangle &thisRect){
+    return (thisRect.a * 2) + (thisRect.b * 2 );
+}
+
+int getS(rectangle &thisRect){
+    return thisRect.a * thisRect.b;
+}
+
+int getDiagonal(rectangle &thisRect){
+    return sqrt((thisRect.a * thisRect.a) + (thisRect.a * thisRect.a));
+}
 int main()
 {
     rectangle rect;
-    rect.a = 3;
-    rect.b = 4;
-    cout << "a = " << rect.a << " and b = " << rect.b << endl;
-    cout << "S = " << rect.getS(rect.a, rect.b) << endl;
-    cout << "P = " << rect.getP(rect.a, rect.b) << endl;
-    cout << "Diagonl = " << rect.getDiagonal(rect.a, rect.b) << endl;
+    int a;
+    int b;
+    cout << "Enter a = ";
+    cin >> a;
+    cout << "Enter b =";
+    cin >> b;
+    init(rect, a, b);
+    print(rect);
+    cout << "S = " << getS(rect) << endl;
+    cout << "P = " << getP(rect) << endl;
+    cout << "Diagonl = " << getDiagonal(rect) << endl;
 }
