@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "print(\"Hello World\")",
+    "created" : 1457195426672.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2053050443",
+    "id" : "FF0E172",
+    "lastKnownWriteTime" : 1457195446,
+    "last_content_update" : 1457195446571,
+    "path" : "~/Documents/projects/RSTUDIO/HelloR/helloWorld.R",
+    "project_path" : "helloWorld.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
