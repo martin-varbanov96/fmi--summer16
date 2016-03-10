@@ -15,3 +15,5 @@ void subject::print(){
     cout << "Student name is = " << name << endl;
     cout << "Student grade is = " << grade << endl;
 }
+
+

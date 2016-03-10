@@ -6,9 +6,8 @@ using namespace std;
 
 void Student::read(){
 
-
     cout << "Enter Student name = ";
-    cin.getline(name, sizeof(name));
+    cin >> name;
 
     cout  << "Enter fn number = ";
     cin >> fn;
@@ -29,4 +28,5 @@ void Student::print(){
 bool Student::isPassed(const char* grades){
 
 }
+
 

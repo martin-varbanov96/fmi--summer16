@@ -2,7 +2,7 @@
 
 struct Student{
     char name[20];
-    unsigned fn;
+    int fn;
 
     subject allSubjects[50];
     unsigned countSubj;

@@ -21,8 +21,8 @@ int getD(int a, int b){
 
 void printBezu(double a, double b, double d){
     int sum;
-    for(int u = -b; u <= a; u++ ){
-        for(int v = -b; v <= b; v++){
+    for(int u = -3000; u <= a; u++ ){
+        for(int v = -3000; v <= b; v++){
             sum = (u*a) + (v*b);
             if(sum == d){
                 cout << d << " = " << a << " * " << u << " + " << b << " * " << v << endl;
