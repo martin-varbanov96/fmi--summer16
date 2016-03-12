@@ -1,0 +1,12 @@
+bookName, income
+book1, 1200
+book2, 300
+CrimeAndPunishment, 500
+DIS, 100
+asdasd, 123
+hgasdasd, 7532
+asdsadasd, 1233
+123asd, 456
+asd123, 432
+123asd, 876
+asdasdf, 546
