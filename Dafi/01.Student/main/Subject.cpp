@@ -5,10 +5,8 @@ using namespace std;
 
 void Subject::init(){
 
-
     cout << "Teacher's name = ";
     cin.getline(subjectTeacherName, sizeof(subjectTeacherName));
-
 
     cout << "Subject name = ";
     cin.getline(name, sizeof(name));

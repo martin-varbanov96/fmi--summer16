@@ -6,8 +6,8 @@ using namespace std;
 
 void Student::init(){
 
-    cin.getline();
 
+    cin.ignore();
     cout << "Enter Student's first name = ";
     cin.getline(firstName, sizeof(firstName));
 
@@ -17,20 +17,23 @@ void Student::init(){
     cout << "Enter Student's fn  = ";
     cin >> fn;
 
+    for(int i = 0; i < 20; i++){
+        subjectID[i] = 0;
+    }
 }
 
 void Student::getGrade(Subject thisSubject){
-    if(thisSubject.grade >= 2){
-        cout << "win!!";
-    }
+    if(thisSubject.grade > 2){
+        subjectID[thisSubject.subjectID] = thisSubject.grade;
+   }
 }
 
 void Student::print(){
     cout << "Student's name is: " << firstName << "  " << lastName << endl;
     cout << "Student's fn is: " << fn << endl;
     for(int i = 0; i < 20; i++){
-        if(subjectID[i] == 1){
-            cout << "Student passed in TODO" << endl;
+        if(subjectID[i] > 0 ){
+            cout << "Student passed with: " << subjectID[i] << endl;
         }
     }
 

@@ -15,8 +15,8 @@ int main()
 
     Student b;
     b.init();
-    b.print();
     b.getGrade(a);
+    b.print();
 
 
 }
