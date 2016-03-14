@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1457990740 source:/home/martin/Documents/projects/fmi--summer16/Dafi/01.Student/main/main.cpp
+	"Student.h"
+	<iostream>
+
+1457990740 /home/martin/Documents/projects/fmi--summer16/Dafi/01.Student/main/Subject.h
+
+1457989570 source:/home/martin/Documents/projects/fmi--summer16/Dafi/01.Student/main/Subject.cpp
+	"Subject.h"
+	<iostream>
+
+1457990574 source:/home/martin/Documents/projects/fmi--summer16/Dafi/01.Student/main/Student.cpp
+	"Student.h"
+	<iostream>
+
+1457990625 /home/martin/Documents/projects/fmi--summer16/Dafi/01.Student/main/Student.h
+	"Subject.h"
+
