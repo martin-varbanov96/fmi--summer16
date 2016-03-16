@@ -1,0 +1,54 @@
+( <> ) == ( != )
+
+1. Списък от фак. номер и име на студент, който да включва всички студенти от специалност "ПМ", III курс, 3 група.
+
+SELECT FN, IME FROM student WHERE KURS = 3 AND GRUPA = 3 AND SPEC = 'ПМ'; 
+
+2. Списък от фак. номер и име на студент, който да включва всички студенти от София, които са III курс. Да се изведат само първите 10 символа от името на студента.
+
+SELECT fn, SUBSTR(ime, 0 , 10)
+FROM STUDENT 
+WHERE ADRES like 'София%' AND KURS = 3 ;
+
+3.Списък от имената на преродавателите, който да включва всички преподаватели от катедра "ИС", получаващи заплата по-голяма от 400 и по-малка от 600.
+
+
+select IME from PREPOD
+WHERE KATEDRA = 'ИС' AND ZAPLATA > 400 AND ZAPLATA < 600;
+
+4.Списък от имената на катедрите, сортиран по азбучен ред.
+
+select distinct KATEDRA
+from prepod
+ORDER BY KATEDRA asc;
+
+5. Списък от фак. номера на студентите, които имат 6 по някакъв предмет.
+
+select distinct S_P.FN 
+from S_P, student 
+where OCENKA = 6;
+
+
+6. Списък от фак. номера на студентите, които не са си взели изпита по "Бази Данни".
+
+
+select fn 
+from s_p 
+where ime = 'Бази данни' and ( ocenka < 3 or ocenka is null );
+
+7. Списък от име на предмет
+и хорариум, който да включва всички задължителни предмети. 
+Хорариума да се изведе във вида - часове_лекции + часове_упражнения
+
+
+select ime, br_l || ' + ' ||br_u
+from Predmet where vid = 'З';
+
+8. Списък от имената на всички студенти и преподаватели, сортиран по азбучен ред.
+
+select student.ime as ime from student
+union
+select prepod.ime from prepod
+order by ime asc;
+
+
