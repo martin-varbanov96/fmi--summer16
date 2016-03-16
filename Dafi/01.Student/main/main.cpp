@@ -15,8 +15,13 @@ int main()
 
     Student b;
     b.init();
-    b.getGrade(a);
     b.print();
 
+    Subject c;
+    c.init();
+    c.print();
+
+    b.addSubj(a);
+    b.addSubj(c);
 
 }
