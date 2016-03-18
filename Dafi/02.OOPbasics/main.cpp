@@ -12,5 +12,9 @@ int main()
 
     a.setX(123);
     a.setY(321);
+    cout << a.getX() << endl;
     a.print();
+
+    Point b(2, 3);
+    b.print();
 }

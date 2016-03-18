@@ -1,8 +1,10 @@
+
 #include "Point.h"
 
-Point::Point(double newX, double newY){
-    x = newX;
-    y = newY;
+
+Point::Point(){
+    x = 0;
+    y = 0;
 }
 double Point::getX() const{
     return x;
