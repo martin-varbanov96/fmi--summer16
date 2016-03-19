@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1458374287 source:/home/martin/Documents/projects/fmi--summer16/Dafi/04.Circle/main.cpp
+	<iostream>
+	"Point.h"
+
+1458374717 /home/martin/Documents/projects/fmi--summer16/Dafi/04.Circle/Point.h
+	<iostream>
+
