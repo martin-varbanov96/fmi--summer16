@@ -1,11 +1,12 @@
-
-
-
 #include "Point.h"
 
 Point::Point(){
     this->x = 0;
     y = 0;
+}
+Point::Point(const Point& temp){
+    x = temp.x;
+    y = temp.y;
 }
 double Point::getX() const{
     return x;
@@ -21,7 +22,12 @@ void Point::setX(double newX){
 }
 void Point::print() const{
     cout << endl;
-    cout << "x = " << x << endl;
-    cout << "y = " << y << endl;
+    cout << " ( " << x << " , " << y << " ) " << endl;
 }
+Point& Point::operator+=(const Point& temp){
+    x += temp.getX();
+    y += temp.getY();
+    return *this;
+}
+
 

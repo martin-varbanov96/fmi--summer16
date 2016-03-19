@@ -1,20 +1,28 @@
 #include <iostream>
 #include "Point.h"
+#include "Circle.h"
 
 using namespace std;
 
 int main()
 {
 
-    Point a;
-    a.setX(5);
-    a.setY(10);
+    Circle a;
 
-    Point b;
+    Point o(a.getO());
+    Point r(a.getR());
 
-    a.print();
+    r.setX(3);
+    r.setY(1);
 
-    b.print();
+    o.setX(4);
+    o.setY(4);
 
-    return 0;
+    a.setO(o);
+    a.setR(r);
+
+    cout << a.getRvec() << endl;
+
+    cout << a.getSize() << endl;
+
 }

@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Point.cpp" />
+		<Unit filename="Point.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

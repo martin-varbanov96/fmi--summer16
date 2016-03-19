@@ -7,11 +7,14 @@ class Point{
     public:
         Point();
         Point(double, double);
+        Point(const Point&);
         double getX() const;
         double getY() const;
 
         void setX(double);
         void setY(double);
+
+        Point& operator += (const Point&);
 
         void print() const;
     private:
@@ -20,4 +23,5 @@ class Point{
 };
 
 #endif // POINT_H
+
 
