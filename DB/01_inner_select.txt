@@ -1,0 +1,63 @@
+/*
+1.Списък от име на преподавател и име на предмет, четен от него, който да включва всички преподаватели.
+*/
+
+SELECT PREPOD.IME, PREDMET.IME 
+FROM  PREDMET, PREPOD
+WHERE PREDMET.nomer = PREPOD.nomer;
+
+
+/*
+2.Списък от фак.номер, име на студент, име на предмет и оценка, който да включва всички студенти.
+*/
+select student.fn, student.ime, s_p.ime, s_p.ocenka 
+from student, s_p
+where student.fn = s_p.fn;
+
+/*
+3.Списък от фак.номер, име на студент, име на предмет и оценка, който да включва студентите от II курс, 
+получили по съответния предмет оценка по-висока от 5.
+*/
+select student.fn, student.ime, s_p.ime, s_p.ocenka 
+from student, s_p
+where student.fn = s_p.fn and student.kurs = 2 and s_p.ocenka > 5;
+
+/*
+4.Списък от име на преподавател, име на предмет, име на студент и оценка, който да включва случаите когато оценката е по-ниска от 4.
+*/
+SELECT PREPOD.IME, S_P.IME, STUDENT.IME, S_P.OCENKA 
+FROM STUDENT, PREPOD, S_P, predmet
+WHERE S_P.IME = predmet.ime and predmet.nomer = prepod.nomer  AND S_P.FN = STUDENT.FN AND S_P.OCENKA < 4;
+
+
+/*
+5.Списък от име на предмет, брой лекции и брой упражнения, който включва предметите, четени от преподавател с фамилия Сидеров.
+*/
+SELECT PREDMET.IME, PREDMET.BR_L, PREDMET.BR_U
+FROM PREPOD, PREDMET
+WHERE PREPOD.nomer = PREDMET.nomer AND PREPOD.IME like '%Сидеров%';
+
+
+/*
+6.Списък от фак. номер, име на студент, курс и група, който да включва студентите, получили по някакъв предмет оценка по-висока от 5.
+*/
+
+SELECT DISTINCT  STUDENT.FN, STUDENT.IME, STUDENT.KURS, STUDENT.GRUPA
+FROM STUDENT, S_P
+WHERE STUDENT.FN = S_P .FN AND S_P.OCENKA > 5;
+
+
+/*
+7.Списък от фак. номер и име на студент, който включва студентите, посещавали предмети, четени от преподавател с номер 100.
+*/
+SELECT student.fn, student.ime
+FROM PREPOD, student, s_p, predmet
+where prepod.nomer = 100 and prepod.nomer = predmet.nomer and prepod.katedra =s_p.ime and student.fn = s_p.fn;
+
+/*
+8.Списък от фак. номер и име на студент, който включва студентите, посещавали предмети, четени от преподавател с фамилия Сидеров.
+*/
+select student.fn, student.ime
+from student, s_p, prepod, predmet
+where student.fn = s_p.fn and predmet.nomer = prepod.nomer and prepod.KATEDRA = s_p.ime and prepod.ime like '%Сидеров%';
+
