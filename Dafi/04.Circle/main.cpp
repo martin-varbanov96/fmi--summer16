@@ -21,6 +21,9 @@ int main()
     a.setO(o);
     a.setR(r);
 
+    Point points[10];
+
+
     cout << a.getRvec() << endl;
 
     cout << a.getSize() << endl;
