@@ -8,6 +8,7 @@ class Circle{
     public:
         Circle();
         Circle(Point, Point);
+        ~Circle();
 
         void setO(const Point&);
         void setR(const Point&);

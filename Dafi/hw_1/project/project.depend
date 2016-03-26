@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1459018882 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/main.cpp
+	<iostream>
+	"Card.h"
+
+1459019014 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Card.cpp
+	"Card.h"
+	<iostream>
+	<ctime>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1459018552 /home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Card.h
+

@@ -5,6 +5,9 @@ Circle::Circle(){
     Point oPoint();
     Point rPoint();
 }
+Circle::~Circle(){
+
+}
 Point Circle::getO(){
     return oPoint;
 }
