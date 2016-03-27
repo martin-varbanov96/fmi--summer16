@@ -18,6 +18,7 @@ class Card{
         void setValue(int);
         void setSuit(int);
         void setValueImg(char);
+        void setValueImg(int);
         void print();
 
 

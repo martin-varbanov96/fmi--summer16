@@ -65,6 +65,9 @@ void Card::setValue(int val){
 void Card::setSuit(int tempSuit){
     this->suit = tempSuit;
 }
+void Card::setValueImg(int temp){
+    this->valueImg = getValueChar(value);
+}
 void Card::setValueImg(char temp){
     this->valueImg = temp;
 }

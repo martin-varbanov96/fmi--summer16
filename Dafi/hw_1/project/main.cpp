@@ -16,5 +16,17 @@ int main()
     Deck a;
     a.print();
 
+    a.pop();
+
+    Card b(a.pop());
+    b.print();
+    a.push(b);
+
+    Card c(a.pop());
+    c.print();
+
+    bool hable = a.isEmpty();
+    cout << "deck is: " << hable <<endl;
+
     return 0;
 }
