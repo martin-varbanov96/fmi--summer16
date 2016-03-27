@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1459018882 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/main.cpp
+1459028627 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/main.cpp
 	<iostream>
 	"Card.h"
+	"Deck.h"
 
-1459019014 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Card.cpp
+1459027191 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Card.cpp
 	"Card.h"
 	<iostream>
 	<ctime>
@@ -11,5 +12,19 @@
 	<stdlib.h>
 	<time.h>
 
-1459018552 /home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Card.h
+1459027155 /home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Card.h
+
+1459025910 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Stack.cpp
+	"Stack.h"
+	<iostream>
+
+1459025680 /home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Stack.h
+
+1459028445 /home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Deck.h
+	"Card.h"
+
+1459028195 source:/home/martin/Documents/projects/fmi--summer16/Dafi/hw_1/project/Deck.cpp
+	"Deck.h"
+	"Card.h"
+	<iostream>
 

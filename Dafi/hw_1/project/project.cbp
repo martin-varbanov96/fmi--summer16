@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Card.cpp" />
 		<Unit filename="Card.h" />
+		<Unit filename="Deck.cpp" />
+		<Unit filename="Deck.h" />
 		<Unit filename="Stack.cpp" />
 		<Unit filename="Stack.h" />
 		<Unit filename="main.cpp" />

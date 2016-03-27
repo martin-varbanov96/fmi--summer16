@@ -8,9 +8,9 @@ class Card{
         int value;
         int suit;
         char valueImg;
-       // char suitChar[50];
     public:
         Card(int, char&);
+        Card(int&, int&);
         Card(int, int);
         Card();
         Card(const Card&);

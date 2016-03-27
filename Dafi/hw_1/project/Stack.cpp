@@ -1,67 +1,48 @@
+#include "Stack.h"
 #include <iostream>
 using namespace std;
 
-const int MAX_SIZE = 100;
+StackOverFlowException::StackOverFlowException(){
+    cout << "Stack overflow" << endl;
+}
 
-class StackOverFlowException
+StackUnderFlowException::StackUnderFlowException(){
+    cout << "Stack underflow" << endl;
+}
+ArrayStack::ArrayStack(){
+    top = -1;
+}
+
+void ArrayStack::Push(int element)
 {
-    public:
-        StackOverFlowException()
+if ( top >= MAX_SIZE )
+    {
+        throw new StackOverFlowException();
+    }
+    data[++top] = element;
+}
+
+int ArrayStack::Pop()
+{
+    if ( top == -1 )
         {
-            cout << "Stack overflow" << endl;
+            throw new StackUnderFlowException();
         }
-};
+        return data[top--];
+}
 
-class StackUnderFlowException
+int ArrayStack::Top()
 {
-    public:
-        StackUnderFlowException()
-        {
-            cout << "Stack underflow" << endl;
-        }
-};
+    return data[top];
+}
 
-class ArrayStack
+int ArrayStack::Size()
 {
-    private:
-        int data[MAX_SIZE];
-        int top;
-  public:
-      ArrayStack()
-      {
-          top = -1;
-    }
+    return top + 1;
+}
 
-    void Push(int element)
-    {
-        if ( top >= MAX_SIZE )
-            {
-                throw new StackOverFlowException();
-            }
-            data[++top] = element;
-    }
+bool ArrayStack::isEmpty()
+{
+    return ( top == -1 ) ? true : false;
+}
 
-    int Pop()
-    {
-        if ( top == -1 )
-            {
-                throw new StackUnderFlowException();
-            }
-            return data[top--];
-    }
-
-    int Top()
-    {
-        return data[top];
-    }
-
-    int Size()
-    {
-        return top + 1;
-    }
-
-    bool isEmpty()
-    {
-        return ( top == -1 ) ? true : false;
-    }
-};

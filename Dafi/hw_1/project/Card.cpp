@@ -34,7 +34,11 @@ Card::Card(int tempVal, int tempSuit){
     suit = tempSuit;
     valueImg = getValueChar(value);
 }
-
+Card::Card(int& tempVal, int& tempSuit){
+    value = tempVal;
+    suit = tempSuit;
+    valueImg = getValueChar(value);
+}
 Card::Card(){
     value = getRandom(1, 15);
     suit = getRandom(1, 4);
