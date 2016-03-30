@@ -1,0 +1,91 @@
+/*1. Общия среден успех на всички студенти.
+*/
+select avg(ocenka)
+from s_p;
+
+/* 2. Средния успех за студент с факултетен номер 10400.*/
+
+select avg(ocenka)
+from s_p
+where fn = 10400;
+
+/* 3. Сумарната заплата и броя на преподавателите.*/
+
+select sum(zaplata), count(*)
+from prepod;
+
+/* 4. Броя на преподавателите, които получават заплата по-малка от 550.*/
+
+select count(*) 
+from prepod
+where zaplata < 550;
+
+/* 5. Списък от факултетните номера на студентите, получили по някакъв предмет оценка по-ниска от средния успех. */
+
+select distinct fn
+from S_P
+where ocenka < (select avg(ocenka) from s_p);
+
+
+/* 6. Списък от име и адрес на преподавателите, получаващи заплата по-висока от средната заплата. */
+
+select ime, adres 
+from prepod
+where (select avg(zaplata) 
+from prepod) < zaplata;
+
+
+/* 7. Списък от имената на предметите, които не се посещават от нито един студент. (по два начина) */
+select predmet.ime
+from PREDMET
+left join s_p on s_p.ime = PREDMET.IME
+left join student on student.fn = s_p.fn
+where s_p.ime is null;
+
+
+/* 8. Списък от фак. номер и среден успех на студента, който да включва всички студенти и да е сортиран по нарастване на фак. номер.*/
+
+select fn, avg(ocenka) 
+    from S_P
+    group by fn;
+
+/* 9. Списък от име на предмет и среден успех по предмета, който да включва всички предмети и да е сортиран по намаляване на средния успех. */
+
+select predmet.ime, avg(s_p.OCENKA) 
+from predmet, s_p
+where predmet.ime = s_p.ime
+group by predmet.ime
+;
+
+/* 10. Среден успех за всеки студент от 3 курс. */
+
+select student.kurs, avg(s_p.ocenka) 
+from STUDENT, s_p
+where s_p.fn = STUDENT.FN
+group by student.kurs;
+
+
+/* 11. Списък от номер на курс и среден успех за курса. */
+select kurs, avg(s_p.ocenka)
+from student, s_p
+where student.fn = s_p.FN
+group by kurs
+;
+
+/* 12. Сумарния брой лекции и сумарния брой упражнения за преподавател с фамилия Сидеров. (по два начина) */
+select  prepod.ime, sum(br_l), sum(br_u)
+from prepod, predmet
+where prepod.NOMER = predmet.nomer and prepod.ime like '%Сидеров%'
+group by prepod.ime
+;
+
+
+/* 13. Списък от име на преподавател и учебната натовареност на преподавателя, който да включва всички преподаватели. 
+(Учебната натовареност е сума от всички часове, като броя на лекциите се умножава по 2)
+*/
+
+select prepod.ime, ( sum(predmet.br_l) + (sum(predmet.br_u) * 2) )
+from prepod, predmet
+where prepod.NOMER = predmet.nomer
+group by prepod.ime
+;
