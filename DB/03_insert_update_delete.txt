@@ -1,0 +1,80 @@
+
+=== Добавяне на редове ===
+/* 1. Да се добавят няколко реда в newstudent. */
+INSERT INTO NEWSTUDENT (FN, IME, ADRES ) values (123452, 'Петкан', 'София');
+
+/*2.  Да се добавят в student новите студенти т.е. данните се вземат от newstudent, като курса ще е 1,
+специалността - 'M' и разпределението по групи следното:
+I гр. - с четни номера
+II гр. - с нечетни номера*/
+INSERT INTO STUDENT (fn, ime, adres, kurs, grupa, spec)  select fn, ime, adres, 1, 1, 'M' from NEWSTUDENT WHERE 
+
+REMAINDER(NEWSTUDENT.fn, 2) = 0;
+INSERT INTO STUDENT (fn, ime, adres, kurs, grupa, spec)  select fn, ime, adres, 1, 2, 'M' from NEWSTUDENT WHERE 
+
+mod(NEWSTUDENT.fn, 2) <> 0;
+
+/* 3. Да се добави нов предмет "ДИС", 4 + 4 с преподавател Първанов. */
+
+INSERT INTO PREDMET
+values ('ДИС', 4, 4, null, null, 102); ??????????????????????????????????
+
+
+
+/* 4. Да се добави оценка 5 на Димитър Димитров по Програмиране. */
+
+INSERT INTO s_p (ocenka) 
+  select 5 from student, s_p where s_p.fn = student.fn and student.ime = 'Димитър Димитров' and s_p.ime = 
+
+'Програмиране';
+
+
+=== Изменение на редове ===
+
+/* 1. Да се измени оценката на студент с fn 10700 по Анализ на 5. */ ????????/
+UPDATE  s_p set (ocenka) =
+    (select 5 from STUDENT, S_P 
+    where S_P.fn = 10700 and STUDENT.fn = S_P.fn and s_p.ime = 'Анализ');
+
+/* 2. Да се измени хорариума на предмет с име Анализ на 3 + 3 и вида му на изборен (И).*/
+UPDATE PREDMET set br_l = 3, br_u = 3, vid = 3    
+  where PREDMET.ime = 'Анализ';
+
+/* 3. Да се увеличи заплатата на всички преподаватели с 5 лв.*/
+update prepod set zaplata = zaplata + 5;
+
+
+/* 4. Да се увеличи с 10% заплатата на преподавателите, които имат учебна натовареност по-голяма от 10 часа 
+
+седмично. */ 
+update prepod p  set zaplata = zaplata * 1.1
+where p.nomer = 
+(select p.nomer 
+from prepod p
+left join PREDMET sub on p.nomer = sub.NOMER 
+where sub.br_l + sub.br_u > 10);
+
+
+/* 5.Да се измени името и адреса на студент с fn 10800, като новите име и адрес се вземат от newstudent. */
+update student s set s.ime = (select ime from NEWSTUDENT where fn = 10800), s.ADRES = (select adres from NEWSTUDENT 
+
+where fn = 10800) where s.fn = 10800;
+
+=== Изтриване на редове ===
+
+/* 1.Да се изтрие преподавател с номер 100. (За предметите, четени от преподавателя да се измени nomer = NULL. */
+
+update predmet set nomer = null where nomer = 100;
+delete from prepod where nomer = 100;
+
+/* 2. Да се изтрие студент с фак. номер 10705. (Да се изтрият и данните от s_p) */
+delete from s_p where fn = 10705;
+delete from STUDENT where fn = 10705;
+
+/* 3.Да се изтрие преподавател с номер 101, ако не чете нито един предмет.*/
+
+delete prepod where 
+(select sub.BR_L 
+from prepod p
+left join predmet sub on p.nomer = sub.nomer
+where sub.BR_L is null and sub.BR_U is null and p.NOMER = 101) is not null;

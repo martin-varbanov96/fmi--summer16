@@ -28,7 +28,6 @@ void Account::print() const{
 
 
 bool Account::correctPassword(char* pass) {
-    int isLet = 0;
     int isNum = 0;
     int sizePass = strlen(pass);
     for(int i = 0; i < sizePass; i++){
