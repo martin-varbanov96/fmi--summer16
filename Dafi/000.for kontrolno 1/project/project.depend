@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1460384831 source:/home/martin/Documents/projects/fmi--summer16/Dafi/000.for kontrolno 1/project/main.cpp
+	<iostream>
+	"Knijka.h"
+
+1460384984 source:/home/martin/Documents/projects/fmi--summer16/Dafi/000.for kontrolno 1/project/Knijka.cpp
+	"Knijka.h"
+	<cstring>
+
+1460383550 /home/martin/Documents/projects/fmi--summer16/Dafi/000.for kontrolno 1/project/Knijka.h
+
