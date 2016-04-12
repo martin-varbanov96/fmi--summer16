@@ -1,0 +1,66 @@
+                            === 02_sum_avg.txt === 
+
+/* 14.  Списък от име на преподавател, име на предмет и среден успех по предмета, който да включва всички преподаватели и предмети. */
+
+select p.ime, avg(sp.OCENKA), pred.IME 
+from S_P sp, PREDMET pred, prepod p 
+where sp.ime = pred.ime and p.nomer = pred.nomer 
+GROUP BY p.ime, pred.ime 
+; 
+
+
+/* 15. Списък от име на предмет и среден успех по предмета, който да включва предметите, посещавани от повече от 5 студента. */ 
+SELECT s_p.ime, avg(s_p.OCENKA) 
+FROM s_p, student 
+where s_p.FN = student.fn   
+GROUP by s_p.ime 
+having count(*) > 5 ; 
+
+
+/* 16.  Списък от име на преподавател и среден успех по предметите, четени от съответния преподавател, 
+който да включва преподавателите, чийто среден успех е по-нисък от 5 и да е сортиран по намаляване на средния успех. */ 
+
+select  prepod.ime, avg(s_p.ocenka) 
+from prepod 
+left join PREDMET on prepod.nomer = PREDMET.NOMER 
+left join s_p on PREDMET.IME = s_p.ime 
+group by prepod.ime 
+HAVING avg(s_p.OCENKA) < 5 
+order by avg(s_p.ocenka) desc 
+; 
+
+                ===    03_insert_update_delete.txt   === 
+
+/* 3. Да се добави нов предмет "ДИС", 4 + 4 с преподавател Първанов. */ 
+
+
+INSERT INTO PREDMET 
+values ('ДИС', 4, 4, null, null, (select  nomer 
+from prepod 
+where prepod.ime like '%Първанов')); 
+
+
+
+/* 1. Да се измени оценката на студент с fn 10700 по Анализ на 5. */ 
+UPDATE  s_p set (ocenka) = 
+    (select 5 from STUDENT, S_P 
+    where S_P.fn = 10700 and STUDENT.fn = S_P.fn and s_p.ime = 'Анализ') 
+    where (select fn from student where fn = 10700) = 10700; 
+
+
+/* 4. Да се увеличи с 10% заплатата на преподавателите, които имат учебна натовареност по-голяма от 10 часа 
+
+седмично. */ 
+update prepod p  set zaplata = zaplata * 1.1 
+where p.nomer = 
+(select p.ime 
+from prepod p 
+left join PREDMET sub on p.nomer = sub.NOMER 
+where (sub.br_l * 2) + sub.br_u > 10 
+group by p.ime 
+;); 
+
+
+
+                ===    Други видове съединение        === 
+
