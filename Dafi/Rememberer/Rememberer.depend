@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1460649537 source:/home/martin/Documents/projects/fmi--summer16/Dafi/Rememberer/main.cpp
+	<iostream>
+	"Note.h"
+
+1460648632 /home/martin/Documents/projects/fmi--summer16/Dafi/Rememberer/Note.h
+
+1460649661 source:/home/martin/Documents/projects/fmi--summer16/Dafi/Rememberer/Note.cpp
+	"Note.h"
+	"string.h"
+	<iostream>
+

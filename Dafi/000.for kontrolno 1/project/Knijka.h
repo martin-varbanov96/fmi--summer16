@@ -3,7 +3,7 @@
 
 class Knijka{
     public:
-        Knijka(int, const char* = "", const char* = "");
+        Knijka(int = 0, const char* = "", const char* = "");
         Knijka(const Knijka&);
         Knijka& operator = (const Knijka&);
         ~Knijka();

@@ -6,6 +6,7 @@ class Libr{
         Libr(int = 1);
         Libr(const Libr&);
         Libr& operator = (const Libr&);
+        Knijka& operator [] (int);
         ~Libr();
     private:
         Knijka* knijki;
