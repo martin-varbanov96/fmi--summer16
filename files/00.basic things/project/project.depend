@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1460837643 source:/home/martin/Documents/projects/fmi--summer16/files/00.basic things/project/main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+
