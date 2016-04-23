@@ -12,7 +12,6 @@ int main()
     char diamond[] = "\xe2\x99\xa6";
     char club[] = "\xe2\x99\xa7";
 
-
     Deck a;
     a.print();
 

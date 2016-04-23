@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1461433430 source:/home/martin/Documents/projects/fmi--summer16/Dafi/simple parent/project/main.cpp
+	<iostream>
+
