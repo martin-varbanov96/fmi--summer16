@@ -1,0 +1,61 @@
+/*
+1. Виртуалната таблица да съдържа колони: фак. номер, име, адрес, курс, група, 
+специалност на студент и да включва редове за студентите от специалност 'ПМ' (обновяемо view).
+*/
+CREATE VIEW STUDENT_VIEW_1 
+as select fn, ime, ADRES, KURS, GRUPA
+from student
+where SPEC = 'ПМ';
+
+
+/*  2. Виртуалната таблица да съдържа колони: номер, име на
+преподавател, катедра, длъжност и годишна заплата (частично обновяемо view).
+*/
+CREATE VIEW PREPOD_TABLE_2
+as select NOMER, IME, KATEDRA, DLAJ, ZAPLATA
+from PREPOD;
+
+/*
+3. Виртуалната таблица да съдържа колони: фак. номер, име на студент, курс, име на предмет и оценка (необновяемо view).
+*/
+
+CREATE VIEW S_P_3
+as select s.fn, s.ime as student_ime , s.kurs, p.ime predmet_ime
+from s_p, predmet p , student s  
+where s_p.fn=s.fn AND s_p.ime = p.ime;
+
+
+
+/* 4. Виртуалната таблица да съдържа колони: фак. номер, име на студент, курс, среден успех и брой изпити (необновяемо view).
+*/
+
+CREATE VIEW student_razni_4
+as select s_p.fn ALIAS1, s.ime ALIAS2, avg(s_p.ocenka) ALIAS3, count(s_p.ime) ALIAS4
+from s_p, student s , predmet p
+where s_p.fn = s.fn AND p.ime = s_p.ime
+group by s_p.fn , s.ime;
+
+/*
+5. За всяка от създадените виртуални таблици да се изпълнят подходящи DML оператори - select, insert, update и delete.
+*/
+
+
+INSERT INTO student_view_1 (fn, ime, adres, kurs, grupa)
+values (00123, 'Pesho', 'Gorna', 2, '3');
+
+update student_view_1 
+set fn = 12332
+where fn = 10300;
+
+delete from student_view_1
+where fn = 42900
+
+/*6. delete tables*/
+
+drop view prepod_table_2
+
+drop view s_p_3
+
+drop view student_razni_4
+
+drop view student_view_1
