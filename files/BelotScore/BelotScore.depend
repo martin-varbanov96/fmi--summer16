@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1462359073 source:c:\users\nitram\documents\github\fmi--summer16\files\belotscore\main.cpp
+1462478848 source:c:\users\nitram\documents\github\fmi--summer16\files\belotscore\main.cpp
 	<iostream>
 	<fstream>
+	<string>
 
