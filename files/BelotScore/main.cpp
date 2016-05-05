@@ -14,6 +14,7 @@ char club[] = "\xe2\x99\xa7";
 int leftTotalScore = 0;
 int rightTotalScore = 0;
 string fileName;
+int gridSize = 50;
 
 //returns the size of the first row of the txt file
 int getFirstLineLength(){
@@ -29,7 +30,7 @@ int getFirstLineLength(){
 }
 
 void deleteLastRow(){
-    console.log(SetEndOfFile("file.txt"));
+//    cout << (SetEndOfFile("file.txt");
 }
 //return length of the number
 template <class T>
@@ -56,19 +57,15 @@ void writeLine(int leftScore, int rightScore){
     fstream scoreFile("file.txt", ios::in | ios::out | ios::ate);
 
     scoreFile << "|" << leftTotalScore << " + " << leftScore;
-    for(int i = 0; i < (getFirstLineLength() - 10 -
+    for(int i = 0; i < ((gridSize/2) - 5 -
                         numDigits(leftTotalScore) -
-                        numDigits(rightTotalScore) -
-                        numDigits(leftScore) -
-                        numDigits(rightScore))/2; i++ ){
+                        numDigits(leftScore)); i++ ){
         scoreFile << "-";
     }
     scoreFile << "||";
-    for(int i = 0; i < (getFirstLineLength() - 10 -
-                        numDigits(leftTotalScore) -
+    for(int i = 0; i < ((gridSize/2) - 5 -
                         numDigits(rightTotalScore) -
-                        numDigits(leftScore) -
-                        numDigits(rightScore))/2; i++ ){
+                        numDigits(rightScore)); i++ ){
         scoreFile << "-";
     }
     scoreFile << rightTotalScore << " + " << rightScore << "|" << endl;
@@ -77,15 +74,13 @@ void writeLine(int leftScore, int rightScore){
     rightTotalScore += rightScore;
 
     scoreFile << "|" << leftTotalScore;
-    for(int i = 0; i < (getFirstLineLength() - 4 -
-                        numDigits(leftTotalScore) -
-                        numDigits(rightTotalScore))/2; i++ ){
+    for(int i = 0; i < ((gridSize/2) - 2 -
+                        numDigits(leftTotalScore)); i++ ){
         scoreFile << "-";
     }
     scoreFile << "||";
-    for(int i = 0; i < (getFirstLineLength() - 4 -
-                        numDigits(leftTotalScore) -
-                        numDigits(rightTotalScore))/2; i++ ){
+    for(int i = 0; i < ((gridSize/2) - 2 -
+                        numDigits(rightTotalScore)); i++ ){
         scoreFile << "-";
     }
     scoreFile << rightTotalScore << "|"<< endl;
@@ -115,17 +110,23 @@ void f(){
     //TODO :: da ne trie file-a
     scoreFile.open("file.txt");
 
-    char* leftName = new char[50];
+    string leftName;
     cout << " Left Team name: ";
     cin >> leftName;
 
-    char* rightName = new char[50];;
+    string rightName;
     cout << " Right Team name: ";
     cin >> rightName;
 
-    scoreFile <<"|" << leftName << "========||========" << rightName << "|"<< endl;
-    delete[] rightName;
-    delete[] leftName;
+    scoreFile <<"|" << leftName;
+    for(int i = 0; i < (gridSize/2 - leftName.length() - 2); i++){
+        scoreFile << "_";
+    }
+    scoreFile <<"||";
+    for(int i = 0; i < (gridSize/2 - rightName.length() - 2); i++){
+        scoreFile << "_";
+    }
+    scoreFile << rightName << "|"<< endl;
     for(int i = 0; i < getFirstLineLength(); i++){
         scoreFile << "_";
     }
