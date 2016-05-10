@@ -1,0 +1,42 @@
+/* 1. За някоя таблица, на която сте собственик, разгледайте правата на достъп по подразбиране. Какви са реалните права които имате? Има ли разлика? Защо?
+*/
+
+create table hable( id NUMBER(6) PRIMARY  KEY ,
+                    hable varchar(10) not null );
+
+
+
+
+GRANT SELECT, UPDATE ON hable TO student /* dava credentiali na user student, ne moje6 da dava6 crentiali na sebe si*/
+
+
+/* 2. Задайте само някои права (SELECT, INSERT, ...) за отделен потребител (например потребителя student), с опция за прехвърляне на правата.
+*/
+
+GRANT SELECT, UPDATE 
+ON HABLE TO student
+WITH GRANT OPTION;
+
+
+/* 3. Използвайте другия потребител (student) и изпълнете някои заявки, за да проверите правата които сте дали. Опитайте да изпълните заявка, за която нямате право.
+*/
+
+select * from s00165.hable 
+
+
+/*
+ 4. Като потребител student, прехвърлете права на трети потребител (или на всички потребители). Пробвайте да прехвърлите повече права, от колкото имате.
+*/
+
+
+grant select on s00165.hable to public /*dava prava na vsi4ki*/
+
+
+grant delete 
+on s00165.hable to s00165 /* ne mogat da se davat, za koito nqmash pravo*/
+
+/* 5. Със собствения си потребител отнемете правата които сте дали пряко. Какво става с правата които са прехвърлени на трети потребител? */
+
+REVOKE SELECT, UPDATE
+ON hable
+FROM student /*crentialite na pravata dadeni ot student na vsi4ki potrebiteli otpadat*/
