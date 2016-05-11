@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1463004051 source:c:\users\nitram\documents\github\fmi--summer16\dafi\rockpapers\main.cpp
+	<iostream>
+	<string>
+	<random>
+

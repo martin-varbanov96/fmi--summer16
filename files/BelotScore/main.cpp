@@ -37,8 +37,8 @@ void deleteLastRow(){
 //3. Rename teams
 //what does eof() really mean ?!
 void renameTeams(){
-    fstream input_file(fileName.c_str(), ios::in);
-    ofstream output_file("temp.txt");
+    ifstream input_file(fileName.c_str());
+    ofstream output_file("temp.txt");//ofstream - pisane
 
     string currLine;
     getline(input_file, currLine);
