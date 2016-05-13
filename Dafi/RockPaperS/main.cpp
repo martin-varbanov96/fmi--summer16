@@ -16,10 +16,12 @@ class List {
 
 private:
     Node * head;
+    Node * bottom;
 
 public:
     List() {
         head = NULL;
+        bottom = NULL;
     }
     ~List() {
         while(head != NULL) {
@@ -31,13 +33,14 @@ public:
     int getValue(){
         return head->data;
     }
-    int getHead(){
-        return head&;
+    Node* getHead(){
+        return head;
     }
     void add(int value) {
         Node * n = new Node;
         n->data = value;
         n->next = head;
+
         head = n;
     }
 };
