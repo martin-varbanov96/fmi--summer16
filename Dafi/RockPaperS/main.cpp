@@ -36,12 +36,16 @@ public:
     Node* getHead(){
         return head;
     }
+    Node* getBottom(){
+        return bottom;
+    }
     void add(int value) {
         Node * n = new Node;
         n->data = value;
         n->next = head;
-
-        head = n;
+        if(bottom == NULL){
+            bottom =
+        }
     }
 };
 void gameFunction(List rps){

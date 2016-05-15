@@ -16,7 +16,7 @@ public:
     List(){
         first = last = NULL;
     }
-    ~
+    //~List()
 };
 int main()
 {
