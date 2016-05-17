@@ -1,0 +1,35 @@
+/* 1. Изпълнете няколко обновяващи оператора и след това ROLLBACK (или COMMIT). Какъв е резултата?*/
+
+INSERT into newstudent
+values(52133, 'Gosho', 'Sofia');
+
+INSERT into student
+values(52133, 'Gosho', 'Sofia', 3, 2, 's');
+  
+commit work;  
+
+
+
+/* 1. Изпълнете няколко обновяващи оператора и след това ROLLBACK (или COMMIT). Какъв е резултата?*/
+INSERT into newstudent
+values(213, 'Pesho', 'Sofia');
+
+INSERT into student
+values(213, 'Pesho', 'Sofia', 3, 2, 's');
+  
+rollback work;  
+
+
+/* 2. Изпълнете няколко обновяващи оператора и преди да направите COMMIT, проверете резултата от друго място (друг компютър, друго приложение). След това изпълнете COMMIT (или ROLLBACK) и отново вижте резултата.*/
+
+UPDATE STUDENT
+  set adres = 'Gorna'
+  where ime = 'Gosho';
+  
+UPDATE NEWSTUDENT
+  set adres = 'Gorna'
+  where ime = 'Gosho';
+  
+commit work;  
+  
+  
