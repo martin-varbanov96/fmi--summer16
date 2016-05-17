@@ -1,11 +1,13 @@
 #ifndef STU_H
 #define STUD_H
-class Student{
+#include "Person.h"
+
+class Student : public Person{
 private:
     int grades;
     char* number;
 public:
-    Student(int =  2, char* = "ajsd");
+    Student(int =  2, char* = "", const Date& = Date(), char* = "");
     ~Student();
     Student(const Student&);
     Student& operator=(const Student&);
