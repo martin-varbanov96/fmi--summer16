@@ -3,8 +3,8 @@
 
 using namespace std;
 
-Student::Student(int gradesTemp, char* fnTemp)
-    :grades(gradesTemp), number(fnTemp){}
+Student::Student(int gradesTemp, char* fnTemp, const Date& birthDay, char* nameTemp)
+    :Person(nameTemp, birthDay), grades(gradesTemp), number(fnTemp){}
 
 Student::Student(const Student& tempObj)
     :grades(tempObj.grades), number(tempObj.number){}
