@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1463513587 source:c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\main.cpp
+1463514559 source:c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\main.cpp
 	<iostream>
 	"Date.h"
 	"Student.h"
 	"Person.h"
 
-1463513587 source:c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\student.cpp
+1463514739 source:c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\student.cpp
 	<iostream>
 	"Student.h"
 
@@ -15,10 +15,10 @@
 
 1463345137 c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\date.h
 
-1463513587 c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\student.h
+1463514542 c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\student.h
 	"Person.h"
 
-1463348803 source:c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\person.cpp
+1463513587 source:c:\users\nitram\documents\github\fmi--summer16\dafi\08.inheritance\01.personstudent\person.cpp
 	"Person.h"
 	<iostream>
 

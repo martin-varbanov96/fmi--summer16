@@ -12,6 +12,9 @@ int main()
     Person gosho;
     gosho.print();
 
+    Student misho;
+    misho.print();
+
 
 
     return 0;

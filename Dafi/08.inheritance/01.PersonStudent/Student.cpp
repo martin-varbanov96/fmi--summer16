@@ -32,6 +32,7 @@ void Student::setNumber(char* num){
 
 void Student::print() const
 {
+    Person::print();
 
 	cout << "Number: " << this->number << endl;
 	cout << "Grades: " << this->grades << endl;
