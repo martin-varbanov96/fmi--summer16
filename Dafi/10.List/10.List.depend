@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1463578778 source:c:\users\nitram\documents\github\fmi--summer16\dafi\10.list\main.cpp
+	<iostream>
+	"List.h"
+	"Stack.h"
+
+1463578826 source:c:\users\nitram\documents\github\fmi--summer16\dafi\10.list\list.cpp
+	"List.h"
+	<iostream>
+
+1463575826 c:\users\nitram\documents\github\fmi--summer16\dafi\10.list\list.h
+	<cstdlib>
+
+1463576318 source:c:\users\nitram\documents\github\fmi--summer16\dafi\10.list\stack.cpp
+	"Stack.h"
+
+1463576163 c:\users\nitram\documents\github\fmi--summer16\dafi\10.list\stack.h
+	"List.h"
+

@@ -1,10 +1,14 @@
 #include "Person.h"
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
 Person::Person(char* nameTemp, Date dateTemp)
-    :name(nameTemp), birthDate(dateTemp){}
+    :birthDate(dateTemp){
+        name = new char[strlen(nameTemp) + 1];
+        strcpy(this->name, nameTemp);
+    }
 
 Person::Person(const Person& tmpObj)
     :name(tmpObj.name), birthDate(tmpObj.birthDate){}
