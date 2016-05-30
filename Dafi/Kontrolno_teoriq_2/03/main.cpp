@@ -36,7 +36,7 @@ Circle::~Circle(){
 
 int main()
 {
-    Point p(1.1, 2.2);
+    {Point p(1.1, 2.2);}
     Circle circle1(4.5, 7.2, 2.9);
     Circle circle2(10, 5, 5);
     return 0;
