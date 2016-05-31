@@ -1,0 +1,6 @@
+﻿  Tree.cpp
+c:\users\nitram\documents\github\fmi--summer16\dafi\12.tree\12.tree\tree.cpp(11): error C2065: 'each': undeclared identifier
+c:\users\nitram\documents\github\fmi--summer16\dafi\12.tree\12.tree\tree.cpp(11): error C2146: syntax error: missing ';' before identifier 'in'
+c:\users\nitram\documents\github\fmi--summer16\dafi\12.tree\12.tree\tree.cpp(11): error C2143: syntax error: missing ';' before ')'
+c:\users\nitram\documents\github\fmi--summer16\dafi\12.tree\12.tree\tree.cpp(11): error C2451: conditional expression of type 'const Tree' is illegal
+  c:\users\nitram\documents\github\fmi--summer16\dafi\12.tree\12.tree\tree.cpp(11): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
