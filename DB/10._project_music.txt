@@ -1,0 +1,71 @@
+/*
+Tablica izpulnitel
+*/
+CREATE TABLE izpulnitel(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ime VARCHAR(30) NOT NULL,
+familia VARCHAR(30) NOT NULL,
+img BLOB
+);
+
+/*
+suzdavane na album
+*/
+CREATE TABLE album(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+godina INT(6) NULL,
+opisanie TEXT
+);
+
+/*
+table pesen
+*/
+CREATE TABLE pesen (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    ime VARCHAR(30) NOT NULL,
+    tekst TEXT,
+    izpulnitel_id INT(6) UNSIGNED,
+    album_id INT(6) UNSIGNED,
+    
+    INDEX par_ind  (izpulnitel_id),
+    INDEX par_indx (album_id),
+    
+    FOREIGN KEY (izpulnitel_id) 
+        REFERENCES izpulnitel(id)
+        ON DELETE CASCADE,
+    
+    FOREIGN KEY (album_id) 
+        REFERENCES album(id)
+        ON DELETE CASCADE
+)
+
+/*
+Create table JANR
+*/
+CREATE TABLE janr(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ime VARCHAR(30) NOT NULL
+);
+
+
+/*
+Create table for mapping between album and singer
+*/
+CREATE TABLE izpulnitel_album_mapping (
+    izpulnitel_id INT(6) UNSIGNED,
+    album_id INT(6) UNSIGNED,
+    
+    INDEX par_ind  (izpulnitel_id),
+    INDEX par_indx (album_id),
+    
+    FOREIGN KEY (izpulnitel_id) 
+        REFERENCES izpulnitel(id)
+        ON DELETE CASCADE,
+    
+    FOREIGN KEY (album_id) 
+        REFERENCES album(id)
+        ON DELETE CASCADE
+)
+
+
+
