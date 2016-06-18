@@ -67,5 +67,162 @@ CREATE TABLE izpulnitel_album_mapping (
         ON DELETE CASCADE
 )
 
+/*
+Create table for mapping between album and janr
+*/
+CREATE TABLE janr_album_mapping(
+    album_id INT(6) UNSIGNED,
+    janr_id INT(6) UNSIGNED,
+    
+    INDEX par_ind  (janr_id),
+    INDEX par_indx (album_id),
+    
+    FOREIGN KEY (janr_id ) 
+        REFERENCES janr(id)
+        ON DELETE CASCADE,
+    
+    FOREIGN KEY (album_id) 
+        REFERENCES album(id)
+        ON DELETE CASCADE
+)
+
+/*
+Create table for mapping between izpulnitel and janr
+*/
+CREATE TABLE janr_izpulnitel_mapping(
+    izpulnitel_id INT(6) UNSIGNED,
+    janr_id INT(6) UNSIGNED,
+    
+    INDEX par_ind  (janr_id),
+    INDEX par_indx (izpulnitel_id),
+    
+    FOREIGN KEY (janr_id ) 
+        REFERENCES janr(id)
+        ON DELETE CASCADE,
+    
+    FOREIGN KEY (izpulnitel_id) 
+        REFERENCES izpulnitel(id)
+        ON DELETE CASCADE
+)
 
 
+/*
+Create table for mapping between pesen and janr
+*/
+CREATE TABLE janr_pesen_mapping(
+    pesen_id INT(6) UNSIGNED,
+    janr_id INT(6) UNSIGNED,
+    
+    INDEX par_ind  (janr_id),
+    INDEX par_indx (pesen),
+    
+    FOREIGN KEY (janr_id ) 
+        REFERENCES janr(id)
+        ON DELETE CASCADE,
+    
+    FOREIGN KEY (pesen_id) 
+        REFERENCES pesen(id)
+        ON DELETE CASCADE
+)
+
+
+/*insert into izpulnitel*/
+INSERT INTO`izpulnitel` (id, ime, familia, img)
+VALUES(NULL, "Arctic", "Mokeys", NULL);
+
+
+/*insert into album*/
+INSERT INTO `album` (`id`, `godina`, `opisanie`) VALUES (NULL, '2013',
+ 'AM - AM is the fifth studio album by the English indie rock
+ band Arctic Monkeys. It was produced by James Ford and co-produced by 
+Ross Orton at Sage & Sound Recording in Los Angeles and Rancho De La ');
+
+
+/*insert into izpulnitel_album_mapping*/
+INSERT INTO `izpulnitel_album_mapping` (`izpulnitel_id`, `album_id`) VALUES ('3', '7');
+
+/*insert into `janr` 
+INSERT INTO `janr` (`id`, `ime`) VALUES (NULL, 'hip-hop');
+
+/*insert into `janr_album_mapping` 
+INSERT INTO `janr_album_mapping` (`janr_id`, `album_id`) VALUES ('1', '3');
+
+/*insert into `janr_izpulnitel_mapping` 
+INSERT INTO `janr_izpulnitel_mapping` (`janr_id`, `izpulnitel_id`) VALUES ('2', '3');
+
+/*insert into `janr_pesen_mapping` 
+INSERT INTO `janr_pesen_mapping` (`janr_id`, `pesen_id`) VALUES ('2', '6');
+
+/*insert into `pesen` 
+INSERT INTO `pesen` (`id`, `ime`, `tekst`, `izpulnitel_id`, `album_id`) VALUES (NULL, ' Do I Wanna Know', '
+
+Have you got color in your cheeks?
+Do you ever get that feelin'' that you can''t shift the tide
+That sticks around like summat''s in your teeth
+Ah, there''s some aces up your sleeve
+Have you no idea that you''re in deep
+I dreamt about you nearly every night this week
+How many secrets can you keep?
+''Cause there''s this tune I found that makes me think of you somehow
+When I play it on repeat
+Until I fall asleep
+Spilling drinks on my settee
+
+(Do I wanna know?)
+If this feeling flows both ways
+(Sad to see you go)
+Was sorta hoping that you''d stay
+(Baby we both know)
+That the nights were mainly made for saying
+Things that you can''t say tomorrow day
+
+Crawlin'' back to you
+
+Ever thought of calling when you''ve had a few?
+''Cause I always do
+Maybe I''m too busy being yours to fall for somebody new
+Now I''ve thought it through
+
+Crawling back to you
+
+So have you got the guts?
+Been wondering if your heart''s still open and
+If so I wanna know what time it shuts
+Simmer down and pucker up
+I''m sorry to interrupt it''s just I''m constantly
+On the cusp of trying to kiss you
+I don''t know if you feel the same as I do
+But we could be together, if you wanted to
+
+(Do I wanna know?)
+If this feeling flows both ways
+(Sad to see you go)
+Was sorta hoping that you''d stay
+(Baby we both know)
+That the nights were mainly made for saying
+Things that you can''t say tomorrow day
+
+Crawling back to you
+
+Ever thought of calling when you''ve had a few? (calling when you''ve had a few)
+''Cause I always do (''cause I always do)
+Maybe I''m too busy being yours to fall for somebody new
+Now I''ve thought it through
+
+Crawling back to you, (do I wanna know?)
+If this feeling flows both ways
+(Sad to see you go)
+Was sorta hoping that you''d stay
+(Baby we both know)
+That the nights were mainly made for saying
+Things that you can''t say tomorrow day
+
+(Do I wanna know?)
+Too busy being yours to fall
+(Sad to see you go)
+Ever thought of calling darling?
+(Do I wanna know)
+Do you want me crawling back to you?
+
+Read more: Arctic Monkeys - Do I Wanna Know? Lyrics | MetroLyrics
+', '6', '12');
