@@ -7,6 +7,7 @@ using namespace std;
 обхожда наляво докато има накъде, след това обхожда на дясно
 докато има,
 */
+
 struct btree_cl{
     btree_cl *left;
     char key;

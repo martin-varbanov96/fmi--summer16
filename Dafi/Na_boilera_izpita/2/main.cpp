@@ -1,5 +1,11 @@
 #include <iostream>
 
+/*
+func 2 не може да се достъпе
+
+*/
+
+
 using namespace std;
 class Base{
 public:
@@ -12,13 +18,12 @@ public:
         func1();
         func3();
     }
-private:
-    virtual void func2(){
-        cout << "func2() \n";
-    }
 protected:
     virtual void func3(){
         cout << "fuc3() \n";
+    }
+    virtual void func2(){
+        cout << "func2() \n";
     }
 };
 
@@ -28,7 +33,7 @@ class Der: public Base{
     }
 protected:
     virtual void func2(){
-        "Der-func2() \n";
+     cout <<   "Der-func2() \n";
     }
 public:
     virtual void func3(){

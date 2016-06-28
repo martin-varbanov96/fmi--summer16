@@ -16,6 +16,8 @@ int main()
  }
  if ( x < t -> key ) insert (x, t -> left);
  else insert (x, t -> right);
+
+    209 stranica
  }
 
 

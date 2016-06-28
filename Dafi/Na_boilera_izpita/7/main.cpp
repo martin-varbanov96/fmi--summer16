@@ -14,11 +14,11 @@ float deque(queue_el *f, queue_el **r){
         cout << "\nОпашката е пълна\n";
         exit(1);
     }
-    f -> link = p -> link;
+    f -> link = p -> link; //tuka tova da se nazubri
     x = p->info;
     delete p;
     if(f->link == NULL)
-    r = &f;
+    r = &f; //tuka tova da se nazubri
     return x;
 
     //147

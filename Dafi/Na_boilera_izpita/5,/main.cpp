@@ -6,6 +6,7 @@ struct stack_cl{
     int info;
     stack_cl *link;
 };
+
 void push(stack_cl **t, int x){
     stack_cl *p;
     if((p = new stack_cl) == NULL){
